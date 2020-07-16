@@ -1,2 +1,7 @@
 // Import Core Clean Blog SCSS
 @import "../assets/vendor/startbootstrap-clean-blog/scss/clean-blog.scss";
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+:lang(ko) {
+    font-family: 'Noto Sans KR', sans-serif;
+}
