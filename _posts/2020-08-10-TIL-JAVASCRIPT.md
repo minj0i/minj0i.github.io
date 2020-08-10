@@ -91,3 +91,14 @@ var와 let, 그리고 const는 다음처럼 사용하는 것을 추천한다.
 - const 키워드는 재할당을 금지하므로 var, let 보다 안전하다.
 
 참고사이트: (https://poiemaweb.com/es6-block-scope)
+
+
+## [오늘의 꿀 TIP!] - ${기술명} CheatSheet
+공부를 충분히 하지 않았음에도 기술을 사용해야하는 경우
+${기술명} CheatSheet 라는 것을 검색해보세요
+CheatSheet라는 것은 치트키를 모아놓은 것처럼
+유용하게 잘 쓰이는 것들을 요약해놓은 것입니다!
+공부를 처음해야할 때도 빠르게 살펴보기 좋습니다!
+> ${hosting} CheatSheet 검색을 통해 발견한 깃헙
+Modern JavaScript Cheatsheet
+https://github.com/mbeaudru/modern-js-cheatsheet
