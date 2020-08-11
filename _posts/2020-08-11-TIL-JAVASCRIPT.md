@@ -1,0 +1,76 @@
+---
+layout: post
+title: "TIL-JAVASCRIPT"
+subtitle: "JAVASCRIPT - ECMA6"
+background: '/img/posts/02.jpg'
+---
+
+# ECMA6
+
+## 화살표 함수(Arrow function)
+
+>## 화살표 함수의 기본 문법
+
+```JAVASCRIPT
+// 매개변수 지정 방법
+    () => { ... } // 매개변수가 없을 경우
+     x => { ... } // 매개변수가 한 개인 경우, 소괄호를 생략할 수 있다.
+(x, y) => { ... } // 매개변수가 여러 개인 경우, 소괄호를 생략할 수 없다.
+
+// 함수 몸체 지정 방법
+x => { return x * x }  // single line block
+x => x * x             // 함수 몸체가 한줄의 구문이라면 중괄호를 생략할 수 있으며 암묵적으로 return된다. 위 표현과 동일하다.
+
+() => { return { a: 1 }; }
+() => ({ a: 1 })  // 위 표현과 동일하다. 객체 반환시 소괄호를 사용한다.
+
+() => {           // multi line block.
+  const x = 10;
+  return x * x;
+};
+```
+
+>## 화살표 함수 호출
+
+화살표 함수는 익명 함수로만 사용가능하기 때문에 함수 표현식을 사용한다.<br/>
+```JAVASCRIPT
+// ES5
+var pow = function (x) { return x * x; };
+console.log(pow(10)); // 100
+
+// ES6
+const pow = x => x * x;
+console.log(pow(10)); // 100
+```
+콜백 함수로 사용 가능하며 일반적인 함수 표현식보다 표현이 간결하다
+```JAVASCRIPT
+// ES5
+var arr = [1, 2, 3];
+var pow = arr.map(function (x) { // x는 요소값
+  return x * x;
+});
+
+console.log(pow); // [ 1, 4, 9 ]
+
+// ES6
+const arr = [1, 2, 3];
+const pow = arr.map(x => x * x);
+
+console.log(pow); // [ 1, 4, 9 ]
+```
+
+[함수표현식 vs 함수선언식]
+```JAVASCRIPT
+function foo() { // 함수선언문
+  console.log("hello");
+}
+var foo2 = function() { // 함수표현식
+  console.log("hello2");
+}
+```
+[익명함수] : 이름이 없는 함수로, 즉시 실행이 필요한 경우 사용.
+
+>## this
+
+- 화살표 함수는 함수를 선언할 때 this에 바인딩할 객체가 정적으로 결정된다. 동적으로 결정되는 일반 함수와는 달리 화살표 함수의 this 언제나 상위 스코프의 this를 가리킨다.
+- 화살표 함수는 call, apply, bind 메소드를 사용하여 this를 변경할 수 없다.
