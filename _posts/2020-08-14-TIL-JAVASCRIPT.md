@@ -6,3 +6,92 @@ background: '/img/posts/02.jpg'
 ---
 
 # ECMA6
+
+## REACT를 위한 ES6 문법
+- https://www.youtube.com/watch?v=IpGNWFFsjA4&t=732s (ES6 문법 액기스(5)~)
+- (Do it! 리액트 프로그래밍 정석) 작가
+
+>## (5) 배열 함수
+
+```JAVASCRIPT
+//ES5
+
+function parse(qs) {
+  var queryString = qs.substr(1);
+  var chunks = queryString.split('&');
+  var result = {};
+
+  for(var i = 0; i<chunks.length; i++) {
+    var parts = chunks[i].split('=');
+    var key = parts[0];
+    var value = Number.isNaN(Number(parts[1])) ? parts[1] : Number(parts[1]);
+    result[key] = value;
+  }
+  return result;
+}
+//parse('?banana=10&apple=20&oragne=30');
+// => { banana: 10, apple: 20, orange: 30}
+
+//forEach 구현
+function parse(qs) {
+  var queryString = qs.substr(1);
+  var chunks = queryString.split('&');
+  var result = {};
+  chunks.forEach(function(value, index) {
+    //값이 먼저 나오는 이유는 실제 값에 접근하는 법이 맞기 때문
+    var parts = chunks[i].split('=');
+    var key = parts[0];
+    var value = Number.isNaN(Number(parts[1])) ? parts[1] : Number(parts[1]);
+    result[key] = value;
+  });
+  return result;
+}
+
+//배열 추출식, 구조분해 할당
+function parse(qs) {
+  var queryString = qs.substr(1);
+  var chunks = queryString.split('&');
+  var result = {};
+  chunks.forEach(function(value, index) {
+    var [key, value] = chunks.split('=');
+    result[key] = Number.isNaN(Number(value)) ? value : Number(value);
+  });
+  return result;
+}
+
+//map함수 사용
+function parse(qs) {
+  var queryString = qs.substr(1);
+  var chunks = queryString.split('&');
+  //forEach와의 차이점은 map은 새로운 배열을 1:1 매핑해서 변환해서 반환!
+  chunks.map(function(value, index) {
+    var [key, value] = chunks.split('=');
+    return {key, value: Number.isNaN(Number(value)) ? value : Number(value) };
+  });
+  return result;
+}
+
+//reduce함수 - return 필요
+function sum(numbers) {
+  //초기값을 0으로 하겠다.
+  return numbers.reduce(function(totla, value, index) {
+    return total + value;
+  }, 0);
+}
+
+function parse(qs) {
+  var queryString = qs.substr(1);
+  var chunks = queryString.split('&');
+
+  var result = chunks.map(function(value, index) {
+    var [key, value] = chunks.split('=');
+    return {key, value: Number.isNaN(Number(value)) ? value : Number(value) };
+  });
+
+  var result2 = result.reduce(function(result, item) {
+    result[item.key] = item.value;
+    return result;
+  }, {});
+  return result2;
+}
+```
