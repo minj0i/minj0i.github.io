@@ -86,3 +86,12 @@ fetch('https://www.zerocho.com/api/post/formdata', {
   }
 }).catch(err => console.error(err));
 ```
+
+(출처: https://velog.io/@prayme/Fetch-API)
+## JQuery와 가장 다른점 세가지
+
+- fetch()가 반환하는 Promise는 response가 HTTP 404, 500 같은 HTTP error status여도 거부하지 않고 다 받아온다.
+- cross-site cookies를 받지 않는다. fetch()는 cross-site session을 설정할 수 없다. 다른 사이트의 Set-Cookie 헤더는 자동으로 무시한다.
+- credential init 옵션을 설정하지 않으면 cookie를 전송하지 않는다.
+
+Fetch에는 fetch(), Headers, Request, Response 인터페이스가 존재한다.
