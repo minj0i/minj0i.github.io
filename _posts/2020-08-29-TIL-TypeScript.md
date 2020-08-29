@@ -79,3 +79,22 @@ let octal: number = 0o744;
 - 하지만, 컴파일 옵션에서 `--strictNullChecks`사용하면, null과 undefined는 void나 자기 자신들에게만 할당할 수 있습니다.
   - 이 경우, null과 undefined를 할당할 수 있게 하려면, union type을 이용해야 합니다.
 
+### null in JavaScript
+- null이라는 값으로 할당된 것을 null이라고 합니다.
+- 무언가가 있는데, 사용할 준비가 덜 된 상태.
+- 런타임에서 typeof 연산자를 알아내면, undefined입니다.
+
+### void
+- 타입이 없는 상태
+- `any`와 반대의 의미
+- 소문자!
+- 주로 함수의 리턴이 없을때 사용
+
+### Any
+- 어떤 타입이어도 상관없는 타입
+- 이걸 최대한 쓰지 않는게 핵심
+- 컴파일 타임에 타입 체크가 정상적으로 이뤄지지 않기 때문
+- 컴파일 옵션 중 any를 쓰면 오류를 뱉도록 하는 옵션도 있음 `noImplicitAny`
+
+
+
