@@ -96,5 +96,19 @@ let octal: number = 0o744;
 - 컴파일 타임에 타입 체크가 정상적으로 이뤄지지 않기 때문
 - 컴파일 옵션 중 any를 쓰면 오류를 뱉도록 하는 옵션도 있음 `noImplicitAny`
 
+### Tuple
+- 배열인데 타입이 한 가지가 아닌 경우
+- 마찬가지로 객체
+- 꺼내 사용할때 주의가 필요
+- 대신 interface로 사용하기도 함
 
+### Enum
+```
+enum Color {Red, Green, Blue}
+let c: Color = Color.Green;
+```
 
+### Symbol
+- ECMAScript 2015의 Symbol입니다
+- 프리미티브 타입의 값을 담아서 사용합니다
+- 고유하고 수정불가능한 값으로 만들어줍니다
