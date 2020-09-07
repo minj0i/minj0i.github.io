@@ -21,3 +21,23 @@ background: '/img/posts/02.jpg'
 
 <!-- 대체 -->
 <a href="javascript://" onClick="test();">테스트</a>
+
+
+## 이름 마스킹 처리
+```JAVASCRIPT
+function maskingName(strName) {
+    if (strName.length > 2) {
+        var originName = strName.split('');
+        originName.forEach(function(name, i) {
+            if (i === 0 || i === originName.length) return;
+            originName[i] = '*';
+        });
+        var joinName = originName.join();
+        return joinName.replace(/,/g, '');
+        } else {
+        var pattern = /.$/; // 정규식
+        return strName.replace(pattern, '*');
+        }
+}
+```
+            
