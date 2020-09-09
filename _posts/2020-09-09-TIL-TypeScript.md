@@ -40,3 +40,29 @@ React component를 사용하는데 declaration merging이나 implements는 필�
 interface는 union이 사용되었다면 extends 할 수 없기 때문에 해당 경우에는 type 별칭을 사용해서 타입을 기술해야 한다.
 
 - 출처: https://joonsungum.github.io/post/2019-02-25-typescript-interface-and-type-alias/
+
+> ## 선택적 프로퍼티 Optional Property
+인터페이스의 프로퍼티가 특정한 조건 하에 존재하거나 아예 존재하지 않을 수 있다.
+
+Interface의 일부가 아닌 속성의 사용을 방지하면서, 사용 가능한 속성을 설명할 수 있다.
+
+예를 들면 createSquare에서 color 속성 이름을 잘못 입력하면 다음과 같은 오류 메세지가 발생함.
+
+```JAVASCRIPT
+interface SquareConfig {
+	color?: string;
+	width?: number;
+}
+function createSquare(config: SquareConfig): {color: string; area: number){
+	let newSquare = { color: "white", area: 100};
+	if(config.colr){
+    //Error: Property 'clor' does not exist on type 'SquareConfig'
+		newSquare.color = config.colr;
+	}
+	if(config.width){
+		newSquare.area = config.width * config.width;
+	}
+	reutnr newSquare;
+}
+let mySquare = createSquare({ color: "black"});
+```
