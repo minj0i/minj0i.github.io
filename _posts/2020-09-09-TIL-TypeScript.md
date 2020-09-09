@@ -39,9 +39,14 @@ React component를 사용하는데 declaration merging이나 implements는 필�
 
 interface는 union이 사용되었다면 extends 할 수 없기 때문에 해당 경우에는 type 별칭을 사용해서 타입을 기술해야 한다.
 
+`type보다 interface가 에러가 발생시 보다 명확하게 지점을 알려줘서
+디버깅에 좋다 -코난`
+
 - 출처: https://joonsungum.github.io/post/2019-02-25-typescript-interface-and-type-alias/
 
 > ## 선택적 프로퍼티 Optional Property
+?를 붙이는 부분!
+
 인터페이스의 프로퍼티가 특정한 조건 하에 존재하거나 아예 존재하지 않을 수 있다.
 
 Interface의 일부가 아닌 속성의 사용을 방지하면서, 사용 가능한 속성을 설명할 수 있다.
@@ -66,3 +71,31 @@ function createSquare(config: SquareConfig): {color: string; area: number){
 }
 let mySquare = createSquare({ color: "black"});
 ```
+
+작성한 코드에서는 poistion에 사용하였다. -> 스타일 적용 시 사용
+```JAVASCRIPT
+interface position {
+    top?: number | string,
+    left?: number | string,
+    right?: number | string,
+    bottom?: number | string,
+}
+
+const Spacing = styled.div`
+  width: 100%;
+  margin-top: ${({ top }:position) => top}px;
+  margin-left: ${({ left }:position) => left}px;
+  margin-right: ${({ right }:position) => right}px;
+  margin-bottom: ${({ bottom }:position) => bottom}px;
+`;
+```
+
+> ## 타입 말고 배열의 타입핑을 잡는 방법?
+튜플 (tuple)
+- 고정된 요소수 만큼의 타입을 미리 선언후 배열을 표현
+```JAVASCRIPT
+let tuple: [string, number];
+tuple = ['hello', 10]; // OK
+tuple = [10, 'hello']; // Error
+```
+- 참고: https://www.bradcypert.com/typescript-tuples/
