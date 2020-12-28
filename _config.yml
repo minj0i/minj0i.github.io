@@ -16,7 +16,6 @@ linkedin_username:
 google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
 
 # Build settings
-theme: jekyll-theme-clean-blog
 plugins:
   - jekyll-feed
 markdown:           kramdown
